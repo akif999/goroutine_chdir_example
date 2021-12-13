@@ -14,12 +14,12 @@ func main() {
 	baseDir, _ := os.Getwd()
 	wg.Add(3)
 	for i := 1; i < 4; i++ {
-		go doSomeThingWithChdir(baseDir, i)
+		go doSomethingWithChdir(baseDir, i)
 	}
 	wg.Wait()
 }
 
-func doSomeThingWithChdir(baseDir string, num int) {
+func doSomethingWithChdir(baseDir string, num int) {
 	defer wg.Done()
 	wd, _ := os.Getwd()
 	fmt.Printf("routine %v: starting in dir: %s\n", num, wd)
